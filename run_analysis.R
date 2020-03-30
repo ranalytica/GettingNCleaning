@@ -1,8 +1,8 @@
 library(reshape2)
 library(dplyr)
 library(tidyr)
-
-setwd("D:/Portfolio/Github/GettingNCleaning")
+## please make sure you have all three packages installed for this script to work.
+setwd("~/Portfolio/GettingNCleaning")
 # modify setwd ("") based on your working directory
 
 ## Creating a "data" directory within WD
@@ -14,21 +14,21 @@ FileUrl <- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%2
 download.file(FileUrl, "./data/dataset.zip")
 unzip("./data/dataset.zip", exdir = "./data")
 
-setwd("D:/Portfolio/Github/GettingNCleaning/data/UCI HAR Dataset")
+setwd("~/Portfolio/GettingNCleaning/data/UCI HAR Dataset")
 # setwd inside UCI HAR Dataset folder
 
 ## Merges the training and the test sets to create one data set.
-subject_train <- read.table("D:/Portfolio/Github/GettingNCleaning/data/UCI HAR Dataset/train/subject_train.txt")
-subject_test <- read.table("D:/Portfolio/Github/GettingNCleaning/data/UCI HAR Dataset/test/subject_test.txt")
-X_train <- read.table("D:/Portfolio/Github/GettingNCleaning/data/UCI HAR Dataset/train/X_train.txt")
-X_test <- read.table("D:/Portfolio/Github/GettingNCleaning/data/UCI HAR Dataset/test/X_test.txt")
-y_train <- read.table("D:/Portfolio/Github/GettingNCleaning/data/UCI HAR Dataset/train/y_train.txt")
-y_test <- read.table("D:/Portfolio/Github/GettingNCleaning/data/UCI HAR Dataset/test/y_test.txt")
+subject_train <- read.table("~/Portfolio/GettingNCleaning/data/UCI HAR Dataset/train/subject_train.txt")
+subject_test <- read.table("~/Portfolio/GettingNCleaning/data/UCI HAR Dataset/test/subject_test.txt")
+X_train <- read.table("~/Portfolio/GettingNCleaning/data/UCI HAR Dataset/train/X_train.txt")
+X_test <- read.table("~/Portfolio/GettingNCleaning/data/UCI HAR Dataset/test/X_test.txt")
+y_train <- read.table("~/Portfolio/GettingNCleaning/data/UCI HAR Dataset/train/y_train.txt")
+y_test <- read.table("~/Portfolio/GettingNCleaning/data/UCI HAR Dataset/test/y_test.txt")
 
 # add column names
 names(subject_train) <- "subjectID"
 names(subject_test) <- "subjectID"
-featureNames <- read.table("D:/Portfolio/Github/GettingNCleaning/data/UCI HAR Dataset/features.txt")
+featureNames <- read.table("~/Portfolio/GettingNCleaning/data/UCI HAR Dataset/features.txt")
 names(X_train) <- featureNames$V2
 names(X_test) <- featureNames$V2
 names(y_train) <- "activity"
