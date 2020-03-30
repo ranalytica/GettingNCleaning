@@ -34,28 +34,20 @@ Step 6. From the data set in step 4, creates a second, independent tidy data set
 
 
 ## Step 1
-```{r Loading Libraries}
+```
 library(reshape2)
 library(dplyr)
 library(tidyr)
 
 setwd("~/Portfolio/GettingNCleaning")
 # modify based on your working directory
-```
 
-
-```{r Data directory}
 ## Creating a "data" directory within WD
 if(!file.exists("data")){dir.create("data")}
-```
-
-
-```{r Unzipping dataset}
 ## Downloading the dataset.zip file to "data directory
 FileUrl <- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
 download.file(FileUrl, "./data/dataset.zip")
 unzip("./data/dataset.zip", exdir = "./data")
-
 setwd("~/Portfolio/GettingNCleaning/data/UCI HAR Dataset")
 ```
 
@@ -145,8 +137,7 @@ head(combined)
 ## Uses descriptive activity names to name the activities in the data set.
 ## Appropriately labels the data set with descriptive variable names.
 
-combined$activity <- factor(combined$activity, labels=c("Walking",
-    "Walking Upstairs", "Walking Downstairs", "Sitting", "Standing", "Laying"))
+combined$activity <- factor(combined$activity, labels=c("Walking","Walking Upstairs", "Walking Downstairs", "Sitting", "Standing", "Laying"))
 head(combined)
 ```
 
