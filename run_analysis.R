@@ -42,12 +42,12 @@ combined <- rbind(train, test)
 ## Extracts only the measurements on the mean and 
 ## standard deviation for each measurement.
 
-meanstdcols <- grepl("mean\\(\\)", names(combined)) |
+mean_std_cols <- grepl("mean\\(\\)", names(combined)) |
         grepl("std\\(\\)", names(combined))
 
-meanstdcols[1:2] <- TRUE
+mean_std_cols[1:2] <- TRUE
 
-combined <- combined[, meanstdcols]
+combined <- combined[, mean_std_cols]
 
 ## Uses descriptive activity names to name the activities in the data set.
 ## Appropriately labels the data set with descriptive variable names.
@@ -60,7 +60,7 @@ combined$activity <- factor(combined$activity, labels=c("Walking",
 ## variable for each activity and each subject.
 
 melted <- melt(combined, id=c("subjectID","activity"))
-tidy <- dcast(melted, subjectID+activity ~ variable, mean)
+tidy_data <- dcast(melted, subjectID+activity ~ variable, mean)
 
 # write the tidy data set to a file
-write.csv(tidy, "tidy.csv", row.names=FALSE)
+write.csv(tidy_data, "tidy.csv", row.names=FALSE)
