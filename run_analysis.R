@@ -63,4 +63,4 @@ melted <- melt(combined, id=c("subjectID","activity"))
 tidy_data <- dcast(melted, subjectID+activity ~ variable, mean)
 
 # write the tidy data set to a file
-write.csv(tidy_data, "tidy.csv", row.names=FALSE)
+write.table(tidy_data, "tidy.txt", row.names=FALSE)
